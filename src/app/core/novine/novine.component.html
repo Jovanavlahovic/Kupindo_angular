@@ -1,0 +1,38 @@
+<div class="row text-center">
+    <div class="col">
+        <h5>Aukcije na Internetu - pronaći ćeš sve o čemu si sanjao. Nema lakšeg načina kupovine i prodaje na Internetu.</h5>
+    </div>
+</div>
+<div class="row text-center mt-3">
+    <div class="col-6">
+        <h4>Najnovije postavljene aukcije</h4>
+        <ngb-carousel *ngIf="lastAdded" interval='7000'>
+            <ng-template ngbSlide *ngFor="let auction of lastAdded">
+                <div class="picsum-img-wrapper">
+                <img src="assets/images/items/{{auction?.image}}" alt="{{auction?.image}}">
+                </div>
+                <div class="carousel-caption text-warning" >
+                <h3>{{auction?.name}}</h3>
+                <p><b>{{auction?.price}}</b></p>
+                <p><b>Datum zatvaranja: {{auction?.dateEnd | date: 'hh:mm d.m.y.'}}</b></p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+    <div class="col-6">
+         <h4>Akcije koje uskoro isticu:</h4>
+        <ngb-carousel *ngIf="firstToEnd" interval='7000'>
+            <ng-template ngbSlide *ngFor="let auct of firstToEnd">
+                <div class="picsum-img-wrapper">
+                <img src="assets/images/items/{{auct?.image}}" alt="{{auct?.image}}">
+                </div>
+                <div class="carousel-caption text-warning">
+                <h3>{{auct?.name}}</h3>
+                <p><b>{{auct?.price}}</b></p>
+                <p><b>Datum zatvaranja: {{auct?.dateEnd | date: 'hh:mm d.m.y.'}}</b></p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+

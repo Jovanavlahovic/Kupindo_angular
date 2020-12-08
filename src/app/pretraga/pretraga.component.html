@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col">
+        <label for="select" class="mr-1">Kategorija:</label>
+        <select name="select" id="select" [(ngModel)]="category" (change)="setSubcategory()" style="width: 15%;" class="p-1">
+            <option *ngFor='let c of categories' [ngValue]="c.name">{{c.name}}</option>
+        </select>
+        <label for="subcategory" class="mr-1 ml-2">Podkategorija:</label>
+        <select name="subcategory" id="subcategory" [(ngModel)]="params.filter.category" class="p-1" (change)="getAuctions()">
+            <option  *ngFor="let sub of subcategories" [value]="sub"
+            >{{sub}}</option>
+        </select>
+        <label for="name" class="mr-1 ml-2">Ime:</label>
+        <input type="text" name="name" id="name" [(ngModel)]="params.filter.name" class="p-1" (change)="getAuctions()">
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <app-lista-oglasa [auctions]="auctions"></app-lista-oglasa>
+    </div>
+</div>
+<div class="row text-center">
+    <div class="col">
+        <button class="btn btn-dark text-warning" (click)="loadMore()" *ngIf="!disableLoadBtn">Load more</button>
+    </div>
+</div>

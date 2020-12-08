@@ -1,0 +1,14 @@
+<div class="row mt-2" *ngFor="let auction of auctions">
+    <div class="col-4">
+        <img src="assets/images/items/{{auction?.image}}" alt="{{auction?.image}}" width="100%">
+    </div>
+    <div class="col-8 text-center">
+        <h3>{{auction?.name}}</h3>
+        <p>{{auction?.description}}</p>
+        <p><b>{{auction?.price}}</b></p>
+        <p>Datum objave: {{auction?.dateStart | date: 'hh:mm, dd.MM.yyyy'}},
+            Datum zatvaranja {{auction?.dateEnd | date: 'hh:mm, dd.MM.yyyy'}}
+        </p>
+        <p>{{auction?.category}}</p>
+    </div>
+</div>
